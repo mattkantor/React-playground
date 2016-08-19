@@ -10,6 +10,8 @@ var NoNavigatorPage = require('./components/NoNavigatorPage');
 var LoginPage = require('./components/LoginPage');
 var NewsPage = require('./components/NewsPage');
 
+var PhotoPage = require('./components/PhotoPage');
+
 
 //const Register = require('./Register');
 
@@ -52,7 +54,8 @@ class ContentView extends React.Component {
 class ninek extends Component {
   componentWillMount(){
     let realm = new Realm({schema: [Person, News]});
-    return fetch('http://localhost:3000/api/v1/participants/all.json',{
+    console.log("http://propellerhead.ca/data.json");
+    return fetch('http://propellerhead.ca/data.json',{
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -115,6 +118,12 @@ class ninek extends Component {
     if (routeId === 'LoginPage') {
       return (
         <LoginPage
+          navigator={navigator} />
+      );
+    }
+    if (routeId === 'PhotoPage') {
+      return (
+        <PhotoPage
           navigator={navigator} />
       );
     }

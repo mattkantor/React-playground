@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 
-class SplashPage extends Component {
+class PhotoPage extends Component {
   componentWillMount() {
     var navigator = this.props.navigator;
       // setTimeout(() => {
@@ -19,11 +19,11 @@ class SplashPage extends Component {
     }
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#003399', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{color: 'white', fontSize: 32,}}>Splash!</Text>
+      <View style={{flex: 1, backgroundColor: '#ffffff', alignItems: 'center', justifyContent: 'center'}}>
+        <Text style={{color: 'black', fontSize: 32,}}>PhotoPage!</Text>
       </View>
     );
   }
 }
 
-module.exports = SplashPage;
+module.exports = PhotoPage;

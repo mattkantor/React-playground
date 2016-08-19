@@ -75,9 +75,9 @@ module.exports = class Menu extends Component {
 
 
         <Text
-          onPress={() => this.props.onItemSelected('Photo')}
+          onPress={() => this.props.onItemSelected('PhotoPage')}
           style={styles.item}>
-          Photo
+          Photos
         </Text>
       </ScrollView>
     );
