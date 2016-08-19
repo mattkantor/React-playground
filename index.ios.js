@@ -8,6 +8,8 @@ const News = require('./model/News.js');
 var SplashPage = require('./components/SplashPage');
 var NoNavigatorPage = require('./components/NoNavigatorPage');
 var LoginPage = require('./components/LoginPage');
+var NewsPage = require('./components/NewsPage');
+
 
 //const Register = require('./Register');
 
@@ -48,22 +50,43 @@ class ContentView extends React.Component {
 }
 
 class ninek extends Component {
+  componentWillMount(){
+    let realm = new Realm({schema: [Person, News]});
+    return fetch('http://localhost:3000/api/v1/participants/all.json',{
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log(responseData.questions[0].question_text);
+        realm.write(() => {
 
+        let news = realm.create('News', {
+          title: responseData.questions[0].question_text,
+          desc: responseData.questions[0].answer_list,
+          category: "none",
+          date: new Date()
+        });
+      });
+    });
+  }
   onMenuItemSelected = (item) => {
     console.log(item)
     this.refs.nav1.replace({
-      id: "SplashPage",
+      id: item,
     });
     this.setState({
       isOpen: false,
-      selectedItem: item,
+      //selectedItem: item,
     });
   }
 
   render() {
-    let realm = new Realm({schema: [Person,News]});
-    const menu =  <Menu onItemSelected={this.onMenuItemSelected} />;
 
+    const menu =  <Menu onItemSelected={this.onMenuItemSelected} />;
     return (
       <SideMenu menu={menu}>
       <Navigator
@@ -82,6 +105,7 @@ class ninek extends Component {
   }
   renderScene(route, navigator) {
     var routeId = route.id;
+
     if (routeId === 'SplashPage') {
       return (
         <SplashPage
@@ -100,9 +124,9 @@ class ninek extends Component {
             navigator={navigator} />
       );
     }
-    if (routeId === 'PersonPage') {
+    if (routeId === 'NewsPage') {
       return (
-        <PersonPage
+        <NewsPage
           navigator={navigator} />
       );
     }
@@ -120,7 +144,7 @@ class ninek extends Component {
       <View style={{flex: 1, alignItems: 'stretch', justifyContent: 'center'}}>
         <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
             onPress={() => navigator.pop()}>
-          <Text style={{color: 'red', fontWeight: 'bold'}}>请在 index.js 的 renderScene 中配置这个页面的路由</Text>
+          <Text style={{color: 'red', fontWeight: 'bold'}}>I found nothing</Text>
         </TouchableOpacity>
       </View>
     );

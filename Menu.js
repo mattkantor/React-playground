@@ -67,6 +67,12 @@ module.exports = class Menu extends Component {
           style={styles.item}>
           Splash
         </Text>
+        <Text
+          onPress={() => this.props.onItemSelected('NewsPage')}
+          style={styles.item}>
+          News
+        </Text>
+
 
         <Text
           onPress={() => this.props.onItemSelected('Photo')}
