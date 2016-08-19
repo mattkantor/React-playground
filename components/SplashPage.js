@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import {
-  
+
   View,
   Text,
 } from 'react-native';
@@ -10,11 +10,29 @@ import {
 class SplashPage extends Component {
   componentWillMount() {
     var navigator = this.props.navigator;
-    setTimeout(() => {
-      navigator.replace({
-        id: 'LoginPage',
+    console.log("going");
+    return fetch('http://localhost:3000/api/v1/participants/all.json',{
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((response) => response.json())
+    .then((responseData) => {
+      console.log( responseData);//load data and update the tables
+    }).then((response)=> {
+      setTimeout(() => {
+        navigator.replace({
+          id: 'LoginPage',
+        });
+      }, 1000);
+    }).catch((error) => {
+        console.error(error);
       });
-    }, 1000);
+
+
+
   }
   render() {
     return (
