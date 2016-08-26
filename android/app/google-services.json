@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "55372779001",
+    "firebase_url": "https://club-71b18.firebaseio.com",
+    "project_id": "club-71b18",
+    "storage_bucket": "club-71b18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55372779001:android:c2b1b2189054ab93",
+        "android_client_info": {
+          "package_name": "com.ninek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55372779001-ql1hfgav6lbd0mhbgs1ur5nmrg4cg3j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOrCKQ6gIAHoF0KwtMC8E-lFREIEVRkXQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

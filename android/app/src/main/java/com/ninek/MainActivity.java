@@ -2,6 +2,8 @@ package com.ninek;
 
 import com.facebook.react.ReactActivity;
 import io.realm.react.RealmReactPackage;
+import android.content.Intent;
+
 
 public class MainActivity extends ReactActivity {
 
@@ -13,4 +15,9 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "ninek";
     }
+    @Override
+    public void onNewIntent (Intent intent) {
+       super.onNewIntent(intent);
+       setIntent(intent);
+   }
 }

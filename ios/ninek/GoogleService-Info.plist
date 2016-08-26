@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>55372779001-637dg50pgqlhl4n0bh74gerh64nvdc60.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.55372779001-637dg50pgqlhl4n0bh74gerh64nvdc60</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAuBRVPT9KA9sNB3jj5YH6IT0BHWILQqdg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>55372779001</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.ninek</string>
+	<key>PROJECT_ID</key>
+	<string>club-71b18</string>
+	<key>STORAGE_BUCKET</key>
+	<string>club-71b18.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:55372779001:ios:8a1331803cbe12e8</string>
+	<key>DATABASE_URL</key>
+	<string>https://club-71b18.firebaseio.com</string>
+</dict>
+</plist>

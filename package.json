@@ -9,6 +9,7 @@
     "react": "15.2.1",
     "react-native": "^0.31.0",
     "react-native-button": "1.6.0",
+    "react-native-fcm": "^1.0.16",
     "react-native-side-menu": "^0.20.0",
     "react-timer-mixin": "latest",
     "realm": "^0.14.3",

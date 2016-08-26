@@ -8,7 +8,8 @@
  */
 
 #import "AppDelegate.h"
-
+#import "Firebase.h" // if you are using Non Cocoapod approach
+#import "RNFIRMessaging.h"
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 
@@ -31,7 +32,13 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [FIRApp configure];
   return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))handler {
+   [[NSNotificationCenter defaultCenter] postNotificationName:FCMNotificationReceived object:self userInfo:notification];
+   handler(UIBackgroundFetchResultNewData);
 }
 
 @end

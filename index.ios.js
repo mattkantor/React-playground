@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FCM from 'react-native-fcm';
 const Realm = require('realm');
 const SideMenu = require('react-native-side-menu');
 const Menu = require('./Menu');
@@ -52,17 +53,35 @@ class ContentView extends React.Component {
 }
 
 class ninek extends Component {
+  componentDidMount(){
+  FCM.requestPermissions(); // for iOS
+    FCM.getFCMToken().then(token => {
+      console.log(token)
+      // store fcm token in your server
+    });
+    this.notificationUnsubscribe = FCM.on('notification', (notif) => {
+      // there are two parts of notif. notif.notification contains the notification payload, notif.data contains data payload
+    });
+    this.refreshUnsubscribe = FCM.on('refreshToken', (token) => {
+      console.log(token)
+      // fcm token may not be available on first load, catch it here
+    });
+
+    FCM.subscribeToTopic('/topics/foo-bar');
+    FCM.unsubscribeFromTopic('/topics/foo-bar');
+  }
+
   componentWillMount(){
+
     let realm = new Realm({schema: [Person, News]});
-    console.log("http://propellerhead.ca/data.json");
+
     return fetch('http://propellerhead.ca/data.json',{
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
-    })
-    .then((response) => response.json())
+    }).then((response) => response.json())
     .then((responseData) => {
       console.log(responseData.questions[0].question_text);
         realm.write(() => {
@@ -159,6 +178,7 @@ class ninek extends Component {
     );
   }
 }
+
 
 
 
